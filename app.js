@@ -63,7 +63,7 @@ app.post('/postAverage', urlencodedParser, function (req, res) {
     console.log(response);
 
     // Determine directory name and create if necessary
-    filePath = __dirname + '/data/averages/' + response.date;
+    filePath = __dirname + 'public/data/averages/' + response.date;
     myModules.ensureDirectoryExistence(filePath);
 
     // Append response string to data file
@@ -104,7 +104,7 @@ app.post('/postPressure', urlencodedParser, function (req, res) {
     console.log(response);
 
     // Determine directory name and create if necessary
-    filePath = __dirname + '/data/pressure_readings/' + response.date;
+    filePath = __dirname + '/public/data/pressure_readings/' + response.date;
     myModules.ensureDirectoryExistence(filePath);
 
     // Append response string to data file

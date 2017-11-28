@@ -3,6 +3,15 @@
 <head>
 <meta name="author" content="Chris Johnson">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("button").click(function() {
+            $("#dataDiv").load("/data/pressure_readings/2017/Nov/28_pressure_readings.txt");
+        });
+    });
+</script>
+
 <title>Alert SLL</title>
 </head>
 
@@ -11,13 +20,23 @@
 <!-- Navigation -->
 <nav>
     <a href="/home.html">Home</a> |
-    <a href="/averages.html">Averages</a> |
-    <a href="/pressure.html>">Latest Pressure Readings</a>
+    <a href="/averages.html">Average Offloads</a> |
+    <a href="/pressure.html">Individual Pressure Readings</a>
 </nav>
 
 <!-- Body -->
 <h1>Alert SLL</h1>
 <h2>View individual pressure readings, recorded any day.</h2>
+
+
+<div id="buttonDiv">
+    <button>Get data now!</button>
+</div>
+
+<br>
+<div id="dataDiv">
+
+</div>
 
 </body>
 </html>

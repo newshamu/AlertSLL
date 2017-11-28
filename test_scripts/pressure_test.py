@@ -4,7 +4,7 @@ import time
 import datetime
 from random import randint
 
-url = "http://127.0.0.1:8080/post_pressure"
+url = "http://127.0.0.1:8080/postPressure"
 
 while (True):
     payload = {
