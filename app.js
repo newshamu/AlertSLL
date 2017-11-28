@@ -73,7 +73,7 @@ app.post('/postAverage', urlencodedParser, function (req, res) {
     // Send average update in email
     mailOptions.text = "Status update for " + response.date + " at " + response.time + ".\n";
     mailOptions.text += "There was an average of " + response.average + " offloads per hour.\n\n"
-    mailOptions.text += "Check it out at http://" + address + ":" + port;
+    mailOptions.text += "Check it out at http://" + address + ":" + port + "/home.html";
 
     console.log("Preparing nodemailer...");
     transporter.sendMail(mailOptions, function(error, info) {
