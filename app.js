@@ -49,7 +49,7 @@ app.post('/post_pressure', urlencodedParser, function (req, res) {
         pressure:req.body.pressure
     };
     var responseString = JSON.stringify(response);
-    conseole.log(response);
+    console.log(response);
 
     // Determine directory name and create if necessary
     filePath = __dirname + '/data/pressure_readings/' + response.date;
