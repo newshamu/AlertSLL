@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var url = require('url');
 
-var my_modules = require('./my_modules');
+var myModules = require('./myModules');
 
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -15,32 +15,54 @@ app.get('/home.html', function (req, res) {
 })
 
 app.post('/post_average', urlencodedParser, function (req, res) {
+
+    // Create response object
     response = {
         time:req.body.time,
         date:req.body.date,
         average:req.body.average
     };
+    var responseString = JSON.stringify(response);
     console.log(response);
-    var output = JSON.stringify(response);
-    filePath = __dirname + '/data/' + response.date;
-    my_modules.ensureDirectoryExistence(filePath);
 
+    // Determine directory name and create if necessary
+    filePath = __dirname + '/data/averages/' + response.date;
+    myModules.ensureDirectoryExistence(filePath);
+
+    // Append response string to data file
     var fileName = filePath + '_averages.txt';
-    fs.appendFile(fileName, output + '\n', function (err) {
+    fs.appendFile(fileName, responseString + '\n', function (err) {
         if (err) throw err;
         console.log("Successfully written to " + fileName + ".");
     })
-    res.end(output);
+
+    // End POST processing
+    res.end(responseString);
 })
 
 app.post('/post_pressure', urlencodedParser, function (req, res) {
+
+    // Create response object
     response = {
         time:req.body.time,
         date:req.body.date,
         pressure:req.body.pressure
     };
-    console.log(response);
-    res.end(JSON.stringify(response));
+    var responseString = JSON.stringify(response);
+    conseole.log(response);
+
+    // Determine directory name and create if necessary
+    filePath = __dirname + '/data/pressure_readings/' + response.date;
+    myModules.ensureDirectoryExistence(filePath);
+
+    // Append response string to data file
+    var fileName = filePath + '_pressure_readings.txt';
+    fs.appendFile(fileName, responseString + '\n', function (err) {
+        console.log("Successfully written to " + fileName + ".");
+    })
+
+    // End POST processing
+    res.end(responseString);
 })
 
 var server = app.listen(8080, "127.0.0.1", function () {
