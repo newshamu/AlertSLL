@@ -35,12 +35,20 @@ var mailOptions = {
 
 // Create the express server
 app.use(express.static('public'));
-app.get('/home.html', function (req, res) {
-    res.sendFile( __dirname + "/" + "home.html" );
+app.get('home.html', function (req, res) {
+    res.sendFile( __dirname + "public/home.html" );
+})
+
+app.get('/averages.html', function (req, res) {
+    res.sendFile( __dirname + "public/averages.html" );
+})
+
+app.get('/pressure.html', function (req, res) {
+    res.sendFile( __dirname + "public/pressure.html" );
 })
 
 // Process average offloads POST
-app.post('/post_average', urlencodedParser, function (req, res) {
+app.post('/postAverage', urlencodedParser, function (req, res) {
 
     // Create response object
     response = {
@@ -81,7 +89,7 @@ app.post('/post_average', urlencodedParser, function (req, res) {
 })
 
 // Process individual pressure reading POST
-app.post('/post_pressure', urlencodedParser, function (req, res) {
+app.post('/postPressure', urlencodedParser, function (req, res) {
 
     // Create response object
     response = {
