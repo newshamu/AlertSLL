@@ -16,6 +16,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var address = "127.0.0.1";
 var port = "8080";
 
+// Sensor variables
+var sensorA = exports.sensor1, sensorB = exports.sensor2, sensorC = exports.sensor3;
+
 // Nodemailer transporter
 var transporter = nodemailer.createTransport({
     service: 'gmail',
