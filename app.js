@@ -17,7 +17,7 @@ var address = "127.0.0.1";
 var port = "8080";
 
 // Sensor variables
-var sensorA = exports.sensor1, sensorB = exports.sensor2, sensorC = exports.sensor3;
+var sensorA = myModules.sensor1, sensorB = myModules.sensor2, sensorC = myModules.sensor3;
 
 // Nodemailer transporter
 var transporter = nodemailer.createTransport({
@@ -117,9 +117,92 @@ app.post('/postPressure', urlencodedParser, function (req, res) {
     res.end(responseString);
 })
 
+// Process updating sensors in use POST
+app.post('/sensors', urlencodedParser, function (req, res) {
+
+    res.sendFile( __dirname + "public/sensors.html" );
+
+    // Set sensor variables in use
+    sensorA = updateSensor(req.body.sensorA);
+    sensorB = updateSensor(req.body.sensorB);
+    sensorC = updateSensor(req.body.sensorC);
+
+    console.log(sensorA);
+    console.log(sensorB);
+    console.log(sensorC);
+
+    var response = "Sensors have been successfully updated!\n"
+    response += "Sensor A = " + sensorA.sensorID + "\n";
+    response += "Sensor B = " + sensorB.sensorID + "\n";
+    response += "Sensor C = " + sensorC.sensorID;
+    res.end(response);
+});
+
+// Create server
 var server = app.listen(port, address, function () {
     var host = server.address().address
     var activePort = server.address().port
 
     console.log("App listening at http://%s:%s", host, port)
+
+    console.log(sensorA);
+    console.log(sensorB);
+    console.log(sensorC);
 })
+
+function updateSensor(sensor) {
+    // Set sensor value based on name
+    if (sensor === "Sensor 1") {
+        return myModules.sensor1;
+    } else if (sensor === "Sensor 2") {
+        return myModules.sensor2;
+    } else if (sensor === "Sensor 3") {
+        return myModules.sensor3;
+    } else if (sensor === "Sensor 4") {
+        return myModules.sensor4;
+    } else if (sensor === "Sensor 5") {
+        return myModules.sensor5;
+    } else if (sensor === "Sensor 6") {
+        return myModules.sensor6;
+    } else if (sensor === "Sensor 7") {
+        return myModules.sensor7;
+    } else if (sensor === "Sensor 8") {
+        return myModules.sensor8;
+    } else {
+        return myModules.sensor1;
+    }
+}
+
+function old_updateSensor(sensor) {
+
+    // Set sensor value based on name
+    switch (sensor) {
+        case "Sensor 1":
+            return myModules.sensor1;
+            break;
+        case "Sensor 2":
+            return myModules.sensor2;
+            break;
+        case "Sensor 3":
+            return myModules.sensor3;
+            break;
+        case "Sensor 4":
+            return myModules.sensor4;
+            break;
+        case "Sensor 5":
+            return myModules.sensor5;
+            break;
+        case "Sensor 6":
+            return myModules.sensor6;
+            break;
+        case "Sensor 7":
+            return myModules.sensor7;
+            break;
+        case "Sensor 8":
+            return myModules.sensor8;
+            break;
+        default:
+            return myModules.sensor1;
+            break;
+    }
+}
