@@ -172,37 +172,3 @@ function updateSensor(sensor) {
         return myModules.sensor1;
     }
 }
-
-function old_updateSensor(sensor) {
-
-    // Set sensor value based on name
-    switch (sensor) {
-        case "Sensor 1":
-            return myModules.sensor1;
-            break;
-        case "Sensor 2":
-            return myModules.sensor2;
-            break;
-        case "Sensor 3":
-            return myModules.sensor3;
-            break;
-        case "Sensor 4":
-            return myModules.sensor4;
-            break;
-        case "Sensor 5":
-            return myModules.sensor5;
-            break;
-        case "Sensor 6":
-            return myModules.sensor6;
-            break;
-        case "Sensor 7":
-            return myModules.sensor7;
-            break;
-        case "Sensor 8":
-            return myModules.sensor8;
-            break;
-        default:
-            return myModules.sensor1;
-            break;
-    }
-}

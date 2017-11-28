@@ -79,37 +79,3 @@ exports.sensor8 = {
     "yIntercept":"8",
     "slope":"8"
 }
-
-exports.updateSensor = function(sensor) {
-
-    // Set sensor value based on name
-    switch (sensor) {
-        case "Sensor 1":
-            return sensor1;
-            break;
-        case "Sensor 2":
-            return sensor2;
-            break;
-        case "Sensor 3":
-            return sensor3;
-            break;
-        case "Sensor 4":
-            return sensor4;
-            break;
-        case "Sensor 5":
-            return sensor5;
-            break;
-        case "Sensor 6":
-            return sensor6;
-            break;
-        case "Sensor 7":
-            return sensor7;
-            break;
-        case "Sensor 8":
-            return sensor8;
-            break;
-        default:
-            return sensor1;
-            break;
-    }
-}

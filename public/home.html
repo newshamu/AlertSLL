@@ -20,18 +20,20 @@
 <h1>Alert SLL</h1>
 <h2>Adjust your device settings, or view the latest data!</h2>
 
-<!-- Sensor selection -->
+<!-- Forms go here -->
 <div id="forms">
+    <!-- Sensor selection -->
     <h3>Active sensors</h3>
     <form action="/sensors" method="post">
         <fieldset>
+            Select the sensors that are currently equipped to your device.<br>
             <label for="sensorA">Sensor A:</label>
             <input id="sensorA" name="sensorA" list="sensors">
             <label for="sensorB">Sensor B:</label>
             <input id="sensorB" name="sensorB" list="sensors">
             <label for="sensorC">Sensor C:</label>
             <input id="sensorC"  name="sensorC" list="sensors">
-            <input type="submit" value="Update Sensors">
+            <input type="submit" value="Update Sensors"><br>
             <datalist id="sensors">
                 <option value="Sensor 1">
                 <option value="Sensor 2">
@@ -42,6 +44,26 @@
                 <option value="Sensor 7">
                 <option value="Sensor 8">
             </datalist>
+        </fieldset>
+    </form>
+
+    <!-- Add email -->
+    <h3>Add email</h3>
+    <form action="/email_add" method="post">
+        <fieldset>
+            Enter an email address here to add it to the listserv.<br>
+            <input type="text" name="email_add">
+            <input type="submit" value="Add email"><br>
+        </fieldset>
+    </form>
+
+    <!-- Remove email -->
+    <h3>Remove email</h3>
+    <form action="/email_remove" method="post">
+        <fieldset>
+            Enter an email address here to remove it from the listserv.<br>
+            <input type="text" name="email_remove">
+            <input type="submit" value="Remove email">
         </fieldset>
     </form>
 </div>
