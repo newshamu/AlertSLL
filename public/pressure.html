@@ -5,11 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $("button").click(function() {
-            $("#dataDiv").load("/data/pressure_readings/2017/Nov/28_pressure_readings.txt");
-        });
+function readText() {
+    $.ajax({
+        url : "/data/pressure_readings/2017/Nov/29_pressure_readings.txt",
+        dataType: "text",
+        success : function (data) {
+            var lines = data.split('\n');
+            var reverseLines = lines.reverse();
+            if (reverseLines.length > 100) {
+                reverseLines.splice(100, reverseLines.length - 100);
+            }
+
+            htmlLines = '<p>' + lines.join('</p><p>') + '</p>';
+
+            $("#dataDiv").html(htmlLines);
+            setTimeout( readText, 5000 );
+        }
     });
+}
+
+$(document).ready(function() {
+    readText();
+});
+
 </script>
 
 <title>Alert SLL</title>

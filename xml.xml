@@ -1,0 +1,23 @@
+<Data>
+    <Sensors>
+        <SensorID>
+            <SensorA>
+                <Date>Nov28</Date>
+                    <Time>04:05:10</Time>
+                        <Data>12345</Data>
+                    <Time>04:05:11</Time>
+                        <Data>43211</Data>
+                    </Time>
+                </Date>
+            </SensorA>
+            <SensorB>
+                <BData1>1234</BData1>
+                <BData2>43321</BData2>
+            </SensorB>
+            <SensorC>
+                <CData1>4444</CData>
+                <CData2>11123</Data>
+            </SensorC>
+        </SensorID>
+    </Sensors>
+</Data>

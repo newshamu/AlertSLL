@@ -15,4 +15,4 @@ while (True):
 
     r = requests.post(url, data=payload)
     print(r.status_code, r.reason)
-    time.sleep(1)
+    time.sleep(.1)
